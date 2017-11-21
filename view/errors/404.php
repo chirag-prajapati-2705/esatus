@@ -1,0 +1,1 @@
+<p>Cette page n'existe pas.<br> Pour revenir à l'accueil, <a href="<?= Router::url('pages/index'); ?>">cliquez ici</a></p>

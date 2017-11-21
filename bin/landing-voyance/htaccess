@@ -1,0 +1,15 @@
+#compression 
+AddOutputFilterByType DEFLATE text/ico text/html text/plain text/xml text/css application/javascript application/x-javascript application/x-httpd-php application/rss+xml application/atom_xml text/javascript
+
+# cache 30 jours
+<FilesMatch "\.(jpg|jpeg|png|gif|swf|js|css|png)$">
+Header set Cache-Control "max-age=2592000, public"
+</FilesMatch>
+
+# cache 1 an
+<FilesMatch "\.(ico)$">
+Header set Cache-Control "max-age=29030400, public"
+</FilesMatch>
+
+#etag
+FileETag MTime Size

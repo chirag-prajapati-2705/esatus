@@ -1,0 +1,59 @@
+.content {
+    float:right;
+    padding: 0px;
+    width:140px;
+
+}
+.content div {
+    display: inline-block;
+    vertical-align: top;
+}
+.header {
+    
+    height: 50px;
+    padding: 5px;
+    width: 100%;
+    
+}
+
+.footer {
+   
+    height: 50px;
+    padding: 5px;
+    width: 100%;
+    
+}
+
+
+#right {
+    width: 150px;
+    margin-left: 20px;
+   
+}
+#summary {
+    border: 1px solid #dddddd;
+    /*position: absolute;*/
+    margin-left:0;
+    width: 330px;
+    
+    
+}
+#summary .title {
+    border-bottom: 1px solid #dddddd;
+    width: 100%;
+    background-color: #dddddd;
+    font-size: 12pt;
+    font-weight: bold;
+    float:rigth;
+}
+#summary .contents {
+    margin: 5px;
+    font-size: 100%;
+    float:rigth;
+}
+#vertical-ticker{
+	
+}
+#vertical-ticker li{
+		
+	}

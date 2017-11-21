@@ -1,0 +1,416 @@
+.navbar-inverse .nav-collapse .nav > li > a, .navbar-inverse .nav-collapse .dropdown-menu a{
+	color: white;
+}
+
+.pull-right{
+	float: right;
+}
+
+
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+body{
+	padding-top: 70px;
+	width: 100%;
+	overflow-x: hidden;
+}
+
+/* Communs */
+.padding-top-1{padding-top: 1em;}
+.padding-top-2{padding-top: 2em;}
+.padding-top-3{padding-top: 3em;}
+
+.padding-bottom-1{padding-bottom: 1em;}
+.padding-bottom-2{padding-bottom: 2em;}
+.padding-bottom-3{padding-bottom: 3em;}
+
+
+/* Forms */
+.login-form{
+	margin-left: 0;
+	max-width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.login-form:before{
+	left: 50%;
+}
+	.login-form .login-field {
+		border-color: rgba(0, 0, 0, 0);
+		font-size: 17px;
+		padding-bottom: 11px;
+		padding-top: 11px;
+		text-indent: 3px;
+		width: 100%;
+		height: auto;
+	}
+
+/* Buttons */
+.btn-warning{
+	border-bottom: 4px solid #e5a200;
+}
+.iconepromo{
+	background-color: #de145c;
+	border-color: #ab0c45;
+}
+.labelpromo{
+	margin-top: .2em;
+	background-color: #de145c;
+}
+.btn.disabled{
+	background-color: #95A5A6;
+	border-bottom: 4px solid #777;
+}
+
+/* Header */
+
+input.top-input {
+	height: 2.7em;
+}
+
+
+/* Responsive menu */
+
+button.navbar-toggle {
+    position: relative;
+    float: left;
+    margin-right: 15px;
+    padding: 9px 10px;
+    margin: 8px 1em;
+    background-color: transparent;
+    background-image: none;
+    border: 1px solid #fff;
+    border-radius: 4px;
+    color: #fff;
+    -webkit-transition: all .25s ease;
+       -moz-transition: all .25s ease;
+        -ms-transition: all .25s ease;
+         -o-transition: all .25s ease;
+            transition: all .25s ease;
+}
+	button.navbar-toggle:hover {
+		background-color: #2980b9;
+	}
+button.navbar-toggle-right{
+	float: right;
+	width: 35px;
+	height: 35px;
+	padding-top: 7px;
+}
+
+button.navbar-toggle:focus {
+    outline: 0
+}
+
+	button.navbar-toggle .icon-bar {
+	    display: block;
+	    width: 22px;
+	    height: 2px;
+	    border-radius: 1px;
+	    background-color: #fff;
+	}
+
+	button.navbar-toggle .icon-bar+.icon-bar {
+	    margin-top: 4px
+	}
+
+body.user button.navbar-toggle:hover {
+	background-color: #db8907;
+}
+
+/* mobile off-canvas menu */
+.navmenu{
+	color: #fff;
+	background-color: #5DADE2;
+}
+	.navmenu a{
+		color: #fff !important;
+	}
+	.navmenu .navmenu-nav a{
+		padding: .5em 1em;
+	}
+	.navmenu .navmenu-nav li.active a,
+	.navmenu .navmenu-nav li a:hover{
+		background-color: #2980b9;
+	}
+	.navmenu .navmenu-nav li.active a:hover{
+		background-color: #2980b9;
+	}
+	.navmenu .navmenu-nav li.sep{
+		border-bottom: 1px solid #fff;
+		padding-bottom: .5em;
+		margin-bottom: .5em;
+	}
+
+/* Mobile off-canvas menu in user admin */
+body.user .navmenu{
+	color: #fff;
+	background-color: #F39C12;
+}
+	body.user .navmenu .navmenu-nav li.active a,
+	body.user .navmenu .navmenu-nav li a:hover{
+		background-color: #db8907;
+	}
+	body.user .navmenu .navmenu-nav li.active a:hover{
+		background-color: #db8907;
+	}
+
+
+/* Sliders */
+.slider-container{
+	position: relative;
+	overflow-x: hidden;
+}
+.cycle-pager{
+  text-align: center;
+  font-size: 2.8em;
+  padding-top: 1em;
+}
+  .cycle-pager span{
+  	color: #ddd;
+    margin: 0 0.15em;
+    cursor: pointer;
+    -webkit-transition: all .35s ease;
+       -moz-transition: all .35s ease;
+        -ms-transition: all .35s ease;
+         -o-transition: all .35s ease;
+            transition: all .35s ease;
+  }
+  .cycle-pager .cycle-pager-active{
+    color: #aaa;
+  }
+
+#slider-advantages{}
+	#slider-advantages .slide{
+		width: 100%;
+		min-height: 400px;
+		background: #eee url() center center no-repeat;
+		background-size: cover;
+	}
+		#slider-advantages .slide .caption{
+			position: absolute;
+			bottom: 30%;
+			right: 0;
+			padding: 1em;
+			max-width: 75%;
+			font-size: 1.2em;
+			background-color: rgba(255,255,255,0.5);
+		}
+#advantages_pager .cycle-pager-active{
+	color: #5dade2;
+}
+#howto{
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 400px;
+	z-index: 150;
+}
+	#howto img{
+		max-height: 100%;
+	}
+#slider-advantages-link-more{
+	position: absolute;
+    width: 100%;
+    height: 50px;
+    z-index: 100;
+    bottom: 50px;
+    left: 0;
+    color: white;
+    text-align: center;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 16px;
+    vertical-align: middle;
+    line-height: 50px;
+}
+	#slider-advantages-link-more .inner{
+		display: inline-block;
+        padding: 0 1em;
+	}
+	#slider-advantages-link-more b{
+        text-decoration: underline;
+    }
+
+#slider-home-featured-experts{}
+	#slider-home-featured-experts .slide{
+		padding: 2em 1.5em 1.5em;
+		color: inherit;
+		border: 1px solid #eee;
+		border-radius: .35em;
+		-webkit-transition: all .35s ease;
+		   -moz-transition: all .35s ease;
+		    -ms-transition: all .35s ease;
+		     -o-transition: all .35s ease;
+		        transition: all .35s ease;
+	}
+	#slider-home-featured-experts .slide:hover{
+		border-color: #5dade2;
+		background-color: #e8f2f9;
+	}
+		#slider-home-featured-experts .slide .image{
+			margin-bottom: .75em;
+		}
+		#slider-home-featured-experts .slide .resume{
+			min-height: 175px;
+		}
+		#slider-home-featured-experts .slide .btn-info{
+			margin-top: 1em;
+			font-size: 1em;
+		}
+		#slider-home-featured-experts .slide h2{
+			margin: -0.2em 0 -0.1em;
+		}
+		#slider-home-featured-experts .slide .subtitle{
+			font-size: .9em;
+			text-transform: uppercase;
+			color: #aaa;
+			margin-bottom: .75em;
+		}
+#featured_experts_pager .cycle-pager-active{
+	color: #5dade2;
+}
+
+
+/* Service details */
+.service-details{}
+	.service-details .service-image{}
+	.service-details .service-clicktocall{}
+		.service-details .service-clicktocall .btn{
+			display: block;
+		}
+	.service-details .service-title{
+		margin:0;
+	}
+	.service-details .service-subtitle{
+		height: auto;
+		margin-top:0;
+		color:#aaa;
+		font-size:0.85em;
+	}
+	.service-details .service-description-short{
+		line-height:1.4em;
+	}
+	.four-contents{
+		float: none;
+	}
+
+
+/* Experts cards */
+
+.expert-grid{}
+	.expert-grid .expert-thumbnail{
+		display: block;
+	}
+	.expert-grid .expert-main-infos{
+		height: 8em;
+		overflow: hidden;	
+	}
+		.expert-grid .expert-title{
+			line-height: 1.2em;
+		}
+		.expert-grid .expert-subtitle{
+			margin-top: 0;
+			color: #bbb;
+		}
+		.expert-grid img{
+			min-height: 150px;
+		}
+	.expert-stats{
+		margin-bottom: .2em;
+	}
+	.expert-grid .label, 
+	.expert-grid .labelpromo{
+		max-width: 100%;
+	}
+
+
+/* Responsive media queries overide */
+
+@media (min-width: 1200px) {
+	#slider-advantages .slide{
+		min-height: 500px;
+	}
+	#howto{
+		height: 500px;
+	}
+	.slider-container{
+		padding-left: 314px;
+	}
+}
+@media (max-width: 1200px) {
+	#slider-advantages .slide{
+		min-height: 500px;
+	}
+	#howto{
+		height: 500px;
+	}
+	.slider-container{
+		padding-left: 314px;
+	}
+}
+@media (max-width: 979px) {
+	.navbar-fixed-top,
+	.navbar-fixed-bottom {
+		position: fixed;
+	}
+	.demo-logo{
+		font-size: 3em;
+	}
+	.demo-logo small{
+		font-size: 0.5em;
+	}
+	.flexslider{
+		width: 100%;
+	}
+	.slider-container{
+		padding-left: 0;
+	}
+	.expert-grid .btn{
+		display: block;
+		margin-bottom: .2em;
+	}
+}
+
+@media (max-width: 767px) {
+	body{
+		padding: 59px 0 0;
+	}
+	.mobile-full-width{
+		width: 100%;
+	}
+	.navbar-fixed-top, .navbar-fixed-bottom, .navbar-static-top {
+		margin-right: 0; 
+		margin-left: 0; 
+	}
+	#slider-home-featured-experts .slide{
+		text-align: center;
+	}
+	.login-form{
+		max-width: 100%;
+	}
+	.footer-resume{
+		padding: 30px;
+	}
+	.footer-banner{
+		margin-left: 0;
+	}
+	.service-details .service-clicktocall{
+		margin-bottom: 1em;
+	}
+		.service-details .service-clicktocall .btn{
+			display: inline-block;
+		}
+	.service-details .service-title{
+		text-align: center;
+	}
+	.service-details .service-subtitle{
+		text-align: center;
+	}
+	.service-details .service-description-short{
+		text-align: justify;
+	}
+}

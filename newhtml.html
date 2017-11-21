@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+ <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" >
+        <head>
+                <title>Bienvenue sur mon site !</title>
+                <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+                <script type="text/javascript">
+                        <!--
+                        var temps = 0;
+                        var compteur;
+                        function lancerCompteur(tempsInitial)
+                                {
+                                temps = tempsInitial
+                                actualiserCompteur();
+                                compteur = setInterval("actualiserCompteur()",1000);
+                                }
+                        function actualiserCompteur()
+                                {
+                                if (temps <= 0)
+                                        {
+                                        clearInterval(compteur);
+                                        }
+                                var jours = 0;
+                                var heures = 0;
+                                var minutes = 0;
+                                var secondes = 0;
+                                jours = parseInt(temps / 86400);
+                                heures = parseInt((temps % 86400) / 3600);
+                                minutes = parseInt((temps % 3600) / 60);
+                                secondes = temps % 60;
+                                var div = document.getElementById("temps");
+                                var texte = document.createTextNode(jours + " jour(s) " + heures + " heure(s) " + minutes + " minute(s) " +  secondes + " secondes(s)");
+                                
+                                if (div.firstChild != null)
+                                        {
+                                        div.removeChild(div.firstChild);
+                                        }
+                                div.appendChild(texte);
+                                temps ++;
+                                }
+                        -->
+                </script>
+        </head>
+        <body onload="javascript:lancerCompteur(0);">
+                <div id="temps"></div>
+        </body>
+</html>

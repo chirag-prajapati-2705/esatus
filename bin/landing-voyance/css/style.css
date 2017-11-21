@@ -1,0 +1,366 @@
+/* Move down content because we have a fixed navbar that is 50px tall */
+
+@font-face{font-family:"Caviar Dreams Bold"; src:url('./fonts/Caviar_Dreams_Bold.ttf');}
+@font-face{font-family:"Caviar Dreams";src:url('./fonts/CaviarDreams.ttf');}
+@font-face{font-family:"Ubuntu Bold";src:url('./fonts/Ubuntu-B.ttf');}
+@font-face{font-family:"Ubuntu Medium";src:url('./fonts/Ubuntu-M.ttf');}
+
+body {
+  	font-family:"Caviar Dreams";
+}
+footer
+{
+	background-color: #0a4963;
+}
+hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 2px solid #ccc;
+	clear:both;
+}
+.experts_intro h1
+{
+	text-transform: uppercase;
+	font-family:"Caviar Dreams";
+	color: #1593c9;
+}
+.experts_intro h3
+{
+	text-transform: uppercase;
+	font-family:"Caviar Dreams Bold";
+	color: #06394e;
+}
+.experts_intro p
+{
+	color: #424242;
+	padding: 15px;
+}
+.person
+{
+	max-width: 300px;
+	min-width: 219px;
+    float: left;
+    padding-right: 14px;
+    padding-left: 14px;
+	margin-bottom: 25px;
+}
+.person h3
+{
+	color: #3498db;
+	text-transform: uppercase;
+	font-family:"Caviar Dreams";
+	margin-top: 10px !important;
+	clear:both;
+}
+.person p
+{
+    font-size: 12px !important;
+    color: #515151;
+}
+.person .left_side
+{
+	float:left;
+}
+.person .right_side
+{
+	float:right;
+    height: 123px;
+}
+.person  h3  img
+{
+	margin-bottom: 7px
+}
+@media (max-width: 651px) {
+	.person
+{
+    width: 50% !important;
+}
+.bloc_1_2
+{
+	padding: 20px !important;
+}
+}
+@media (max-width: 991px) {
+	.bloc_1_2
+	{
+		padding: 15px !important;
+	}
+	.bloc_1 > div > div > div.col-md-7 > div:nth-child(1) > p
+	{
+		padding: 20px;
+		margin-top: 20px;
+	}
+	.bloc_1
+	{
+		text-align: center;	
+		background-image: none !important;
+	}
+	.yellow_container
+	{
+		text-align: center;
+	}
+}
+body > div.jumbotron.bloc_mid > div > div.col-md-3.col-sm-12.col-xs-12.text-center
+{
+    margin-top: 29px;
+    padding-right: 0px;
+}
+@media (max-width: 640px) {
+.person
+{
+    width: 67% !important;
+	text-align: center;
+	margin-left:50px;
+}
+.person p
+{
+	text-align: center;
+}
+}
+.infos
+{
+	display: block;
+	width: 76px !important;
+	height: auto !important;
+	background-color: #3498db;
+	color: white;
+	padding:5px;
+	margin-bottom: 3px;
+}
+.navbar-inverse {
+    background-color: #06394e !important;
+    border-color: #fd8000 !important;
+}
+.social_networks
+{
+	padding:15px;
+	background-color: #06394e !important;
+    border-bottom: 3px #fd8000 !important;
+	height:50px;
+}
+.social_networks a
+{
+	margin-right:15px;
+}
+.social_networks span
+{
+	margin-right:5px;
+	color: #DDD;
+}
+.bloc_1
+{
+	background-image: url(../img/background.jpg);
+    background-color: #EDEDED;
+    background-position: top center;
+    background-repeat: no-repeat;
+	min-height:667px;
+    height: auto;
+    padding-top: 30px;
+	margin-bottom: 0px;
+}
+.bloc_1_2
+{
+	font-family:"Caviar Dreams Bold";
+	padding-top: 280px;
+    padding-right: 105px;
+	padding-left: 15px;
+}
+.bloc_1_2 .p_1
+{
+	font-size: 20px;
+	color: #06394e;
+	padding-left: 15px;
+	text-align: justify;
+}
+.bloc_1_2 .hesitez_pas
+{
+	font-size: 31px;
+	color: #06394e;
+	padding-left: 15px;
+}
+.bloc_1_3 
+{
+	padding-left: 15px;
+}
+.bloc_1_3 .experts
+{
+	font-family:"Ubuntu Bold";
+	font-size: 55px;
+	color: #2aaae1;
+	margin-bottom: 0px !important;
+}
+.bloc_1_3 .ecoute
+{
+	font-family:"Ubuntu Medium";
+	font-size: 47px;
+	color:#06394e;
+	padding:10px;
+	white-space:nowrap;
+}
+.bloc_1_4 {
+	padding-left: 15px;
+	padding-bottom: 15px;
+}
+.bloc_1_4 img{
+	margin-right:15px;
+}
+.bloc_2_1
+{
+	padding: 15px;
+	min-height:631px;
+	background: -moz-linear-gradient(left,  rgba(209,209,209,0) 0%, rgba(234,234,234,1) 36%, rgba(234,234,234,1) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(left,  rgba(209,209,209,0) 0%,rgba(234,234,234,1) 36%,rgba(234,234,234,1) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to right, rgba(209,209,209,0) 0%,rgb(234, 234, 234) 36%,rgb(234, 234, 234) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00d1d1d1', endColorstr='#f4f4f4',GradientType=1 ); /* IE6-9 */
+}
+.form-title
+{
+	background: url('../img/form_arrow.png') no-repeat left center;
+	font-family:"Caviar Dreams Bold";
+	padding-left: 19px;
+}
+.form-title
+{
+	font-family:"Caviar Dreams Bold";
+}
+.bloc_radio
+{
+	font-size:large;
+	font-family:"Caviar Dreams Bold";
+	padding-left: 100px ;
+}
+.text_notif
+{
+    font-size: 12px !important;
+    padding-left: 51px !important;
+    color: #868686;
+}
+.btn_1
+{
+	background: url('../img/form_btn.png') top right no-repeat;
+	display:block;
+	width:100%;
+	height:64px;
+	padding: 0;
+	border: none;
+	-webkit-background-size: contain; /* pour anciens Chrome et Safari */
+	background-size: contain;
+}
+.bloc_mid
+{
+	background-color:#fd8000;
+	margin-bottom: 0px;
+}
+.bloc_mid .col-md-2 img
+{
+    margin-top: 10px;
+}
+.bloc_mid .col-md-10 h2
+{
+    margin-top: 10px;
+    margin-bottom: 0px;
+	color:white;
+	text-transform: capitalize;
+	text-transform: uppercase;
+}
+.bloc_mid .col-md-10 p
+{
+	color:white;
+}
+.bloc_experts 
+{
+	margin-bottom: 0px;
+}
+.footer_1
+{
+	color: white;
+}
+.footer_1  col-md-8 h2
+{
+	text-transform: uppercase;
+	font-family:"Caviar Dreams";
+	margin-top: 10px !important;
+}
+body > footer > div > div.col-md-8 > p:nth-child(1)
+{
+    margin-top: 50px !important;
+}
+body > footer > div > div.col-md-4 > h3
+{
+    margin-top: 50px !important;
+	padding-bottom: 34px;
+}
+body > footer > div > div.col-md-4 > h3:nth-child(3)
+{
+		text-transform: uppercase;
+}
+body > div.container > div > div  > p
+{
+	min-height:34px;
+}
+body > footer > div > div.col-md-4 > ul > li
+{
+	margin-top: 15px;
+}
+.bloc_partenairs
+{
+	background-color: white;
+	padding: 5px;
+}
+.bloc_partenairs img
+{
+	margin-left: 5px;
+}
+.footer_2
+{
+	color: white;
+	background-color:#012230;
+}
+.footer_2 div
+{
+	padding: 30px;
+}
+.sender_container
+{
+	padding-left: 20%;
+    padding-right: 20%;
+}
+.follow_us 
+{
+	    min-height: 95px;
+}
+.follow_us span
+{
+	text-transform: uppercase;
+	font-size: 22px;
+	float:left;
+}
+.follow_us a {
+    display: block !important;
+    background-color: rgba(255, 255, 255, 0.2) !important;
+    width: 26px !important;
+    height: 26px !important;
+    float: left !important;
+    margin-left: 5px !important;
+    text-align: center;
+    border-radius: 25px;
+    margin-top: 3px;
+}
+@media (max-width: 768px) {
+	.bloc_radio
+	{
+		padding-left: 20%;
+		padding-right: 20%;
+	}
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+	.follow_us  a:nth-child(2){
+		clear: left;
+	}
+	.follow_us span
+	{
+		margin-top: 15px;
+		margin-bottom: 10px;
+	}
+}
