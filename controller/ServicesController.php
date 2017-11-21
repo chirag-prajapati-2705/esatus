@@ -1134,7 +1134,7 @@ class ServicesController extends Controller {
     }
 
     public function view($cat, $subcat, $slug, $id) {
-
+        date_default_timezone_set("America/New_York");
         $this->loadModel('Affecter');
         $this->loadModel('Campagne');
 
