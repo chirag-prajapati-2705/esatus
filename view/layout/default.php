@@ -9,9 +9,6 @@
     <meta name="author" content="">
 
     <title>Esatus</title>
-
-    <!-- Bootstrap core CSS -->
-    <?= $this->HTML->css('bootstrap'); ?>
     <link href="<?php echo URL ?>/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
 
     <!-- Custom fonts for this template -->
@@ -19,22 +16,8 @@
     <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <?= $this->HTML->css('modern-business'); ?>
-    <?= $this->HTML->css('my_style'); ?>
-    <?= $this->HTML->favicon(); ?>
-    <?= $this->HTML->author(); ?>
-
-
-
-    <?= $this->HTML->css('ss-symbolicons-line'); ?>
-    <?= $this->HTML->css('owl.carousel'); ?>
-    <?= $this->HTML->css('owl.theme'); ?>
-    <?= $this->HTML->css('owl.transitions'); ?>
-    <?= $this->HTML->css('style/masterslider'); ?>
-
-    <?= $this->HTML->css('jquery-ui.min'); ?>
-    <!-- Temporary navbar container fix -->
-    <?= $this->HTML->css('jquery-ui.min'); ?>
+    <link href="<?php echo URL ?>/css/modern-business.css" rel="stylesheet">
+    <link href="<?php echo URL ?>/css/my_style.css" rel="stylesheet">
 
     <!-- Bootstrap core JavaScript -->
     <script src="<?php echo URL ?>/vendor/jquery/jquery.min.js"></script>
@@ -73,7 +56,7 @@
     </button>
     <div class="container">
 
-        <a href="http://www.esatus.fr/index.php/" title="Esatus"><img src="http://www.esatus.fr/img/esatus/logo.png" alt="" />
+        <a href="http://www.esatus.fr/index.php/" title="Esatus"><img src="<?php echo URL ?>/img/esatus/logo.png" alt="" />
         </a>
 
         <div class="collapse navbar-collapse" id="navbarExample">

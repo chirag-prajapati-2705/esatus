@@ -26,7 +26,6 @@ $(function () {
         });
     }
     $(document).on('click', '.h-modal', function (e) {
-        alert();
         if(user_id !=null && user_id !=''){
             $('#adviser_detail').modal('show');
         }else{
