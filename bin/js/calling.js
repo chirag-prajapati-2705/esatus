@@ -8,16 +8,15 @@ $(function () {
             if (!$(this).hasClass('hidden')) {
                 var $this = $(this);
                 var call_id = $(this).attr('data-call-id');
-                console.log(call_id);
                 $.ajax({
                     type: "POST",
                     url: url + "/index.php/services/get_calling_status",
                     data: {'call_id': call_id},
                     success: function (response) {
+                        if (typeof response != 'undefined' && response !=null) {
                         var response = $.parseJSON(response);
-                        if (typeof response != 'undefined' && response.success) {
-                            $this.addClass('hidden');
-                            $this.next().removeClass('hidden').text('Appeler');
+                        $this.addClass('hidden');
+                        $this.next().removeClass('hidden').text('Appeler');
                         }
                     },
                     error: function (e_html) {
