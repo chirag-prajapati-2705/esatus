@@ -62,8 +62,9 @@ label {
 }
 
 .profil-info .info-chiffre .nb-appel span {
-    margin-left: -46px !important;
+    margin-left: -27px !important;
 }
+.profil-info .info-chiffre .nb-appel .fa-circle{left:18px;}
 
 .close {
     float: right;
@@ -144,3 +145,4 @@ h4 {
     font-weight: 500;
     margin-top: 4px;
 }
+#exp-selec-2 .note span{left:-12px !important;}

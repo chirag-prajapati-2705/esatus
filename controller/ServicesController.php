@@ -1256,15 +1256,25 @@ class ServicesController extends Controller {
             $availabilities->saturday,
             $availabilities->sunday,
         );
-        $d['reviews'] = array();
-        foreach ($calls as $k => $v) {
-            $rating = $this->Rating->findOneBy(array('conditions' => array('session_id' => $v->Call->session_id)));
-            if ($rating) {
-                $user = current($this->User->findOneBy(array('conditions' => array('id' => $v->Call->user_id))));
-                $rating->Rating->name = $user->first_name;
-                $d['reviews'][] = $rating;
-            }
+        $d['popular_expert']=$this->Service->get_popular_expert();
+
+        foreach ($d['popular_expert'] as $k => $v) {
+
+            $category = current($this->Category->findOneBy(array('conditions' => array('id' => $v->Service->category_id))));
+            $subcategory = current($this->Subcategory->findOneBy(array('conditions' => array('id' => $v->Service->subcategory_id))));
+            $user = current($this->User->findOneBy(array('conditions' => array('profile_id' => $v->Service->profile_id))));
+            $slug = explode('.', $v->Service->img);
+            $rating = current($this->Rating->average('rate', 'service_id = ' . $v->Service->id));
+            $username = ($v->Service->username == '') ? $user->last_name . '-' . $user->first_name : $v->Service->username;
+            $v->Service->url = 'slug:' . clean($username) . '/id:' . $v->Service->id;
+            $v->Service->category = $category->slug;
+            $v->Service->subcategory = $subcategory->slug;
+            $v->Service->user = $user;
+            $v->Service->available = $available;
         }
+
+        $d['reviews'] = array();
+
         
         $d['page_canonical'] = 'experts/'.$d['category']->slug.'/'.$d['subcategory']->slug.'/'.clean($username).'-'.$d['service']->id;
         $this->set($d);

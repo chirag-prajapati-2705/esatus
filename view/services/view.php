@@ -27,7 +27,7 @@
                             style="vertical-align: inherit;"><?= $service->title; ?></font></font></h5>
 
                 <p class="card-text"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-                            <?= $service->description; ?>
+                            <?= (strlen($service->description) > 200) ? substr($service->description, 0, 200) . '...' : $service->description; ?>
                         </font></font></p>
             </div>
         </div>
@@ -37,7 +37,7 @@
                 <div class="nb-appel">
                     <i class="fa fa-circle" aria-hidden="true"></i><span><?= $service->count; ?></span><font
                         style="vertical-align: inherit;">calls
-                        </font></div>
+                    </font></div>
                 <div class="nb-note"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
                             Note</font></font><i class="fa fa-star"
                                                  aria-hidden="true"></i><span><font
@@ -209,82 +209,96 @@
                     <p style="padding-bottom:1rem;color:#ff00ff;"><font style="vertical-align: inherit;"><font
                                 style="vertical-align: inherit;"><?= number_format($service->cost_per_call, 2); ?>  € /
                                 min</font></font></p>
-                    <a data-service-id="<?= $service->id; ?>" data-charge-id="" data-call-id="" id="disconnect_button"
-                       class="bleu-over h-modal disconnect_button" href="javascript:void(0)">Connectiopn à appeler</a>
-                    <a class="bleu-over call_button h-modal" href="javascript:void(0)" title="Start the call" alt=""
-                       data-toggle='modal' data-target='adviser_detail'
-                        > <i class="fa fa-phone" aria-hidden="true"></i><font
-                            style="vertical-align: inherit;"> LAUNCH THE
-                            CALL</font></a>
 
-                    <div class="modal fade form-modal" id="adviser_detail" tabindex="-1" role="dialog"
-                         aria-labelledby="myModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <!-- Modal Header -->
-                                <div class="modal-header">
-                                    <h4 class="modal-title" id="myModalLabel">
-                                        Information de paiement
-                                    </h4>
-                                </div>
-                                <!-- Modal Body -->
-                                <div class="modal-body">
-                                    <span class="payment-errors"></span>
+                    <?php
+                    if ($service->available == 1): ?>
+                        <a data-service-id="<?= $service->id; ?>" data-charge-id="" data-call-id=""
+                           id="disconnect_button"
+                           class="bleu-over h-modal hidden disconnect_button" href="javascript:void(0)">Connectiopn à
+                            appeler</a>
+                        <a class="bleu-over call_button h-modal" href="javascript:void(0)" title="Start the call" alt=""
+                           data-toggle='modal' data-target='adviser_detail'
+                            > <i class="fa fa-phone" aria-hidden="true"></i><font
+                                style="vertical-align: inherit;"> LAUNCH THE
+                                CALL</font></a>
 
-                                    <form action="#" method="POST" class="payment-info"
-                                          id="payment-form_<?php echo $k; ?>">
-                                        <input type="hidden" class="sender-number" name="sender-number"
-                                               value="<?= (!empty($service->phone)) ? $service->phone : '' ?>">
-                                        <input type="hidden" name="price"
-                                               value="<?= number_format($service->cost_per_minute, 2); ?>">
-                                        <input type="hidden" name="service_id" value="<?= $service->id; ?>">
+                        <div class="modal fade form-modal" id="adviser_detail" tabindex="-1" role="dialog"
+                             aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <h4 class="modal-title" id="myModalLabel">
+                                            Information de paiement
+                                        </h4>
+                                    </div>
+                                    <!-- Modal Body -->
+                                    <div class="modal-body">
+                                        <span class="payment-errors"></span>
 
-                                        <div class='form-row'>
-                                            <div class='col-xs-12 form-group card'>
-                                                <label class='control-label'>Numéro de carte</label>
-                                                <input autocomplete='off' name="card_number"
-                                                       class='form-control card-number required' size='20' type='text'
-                                                       data-stripe="number">
+                                        <form action="#" method="POST" class="payment-info"
+                                              id="payment-form_<?php echo $k; ?>">
+                                            <input type="hidden" class="sender-number" name="sender-number"
+                                                   value="<?= (!empty($service->phone)) ? $service->phone : '' ?>">
+                                            <input type="hidden" name="price"
+                                                   value="<?= number_format($service->cost_per_minute, 2); ?>">
+                                            <input type="hidden" name="service_id" value="<?= $service->id; ?>">
+
+                                            <div class='form-row'>
+                                                <div class='col-xs-12 form-group card'>
+                                                    <label class='control-label'>Numéro de carte</label>
+                                                    <input autocomplete='off' name="card_number"
+                                                           class='form-control card-number required' size='20'
+                                                           type='text'
+                                                           data-stripe="number">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class='form-row'>
-                                            <div class='col-xs-4 form-group cvc required'>
-                                                <label class='control-label'>CVV</label>
-                                                <input autocomplete='off' name="cvv"
-                                                       class='form-control card-cvc required' placeholder='ex. 311'
-                                                       maxlength="3" size='4' type='text' data-stripe="cvc">
+                                            <div class='form-row'>
+                                                <div class='col-xs-4 form-group cvc required'>
+                                                    <label class='control-label'>CVV</label>
+                                                    <input autocomplete='off' name="cvv"
+                                                           class='form-control card-cvc required' placeholder='ex. 311'
+                                                           maxlength="3" size='4' type='text' data-stripe="cvc">
+                                                </div>
+                                                <div class='col-xs-4 form-group expiration required'>
+                                                    <label class='control-label'>Expiration</label>
+                                                    <input class='form-control card-expiry-month required'
+                                                           name="exp_month"
+                                                           placeholder='MM' size='2' maxlength="2" type='text'
+                                                           data-stripe="exp_month">
+                                                </div>
+                                                <div class='col-xs-4 form-group expiration required'>
+                                                    <label class='control-label'> </label>
+                                                    <input class='form-control card-expiry-year required'
+                                                           name="exp_year"
+                                                           placeholder='YYYY' size='4' type='text'
+                                                           data-stripe="exp_year">
+                                                </div>
                                             </div>
-                                            <div class='col-xs-4 form-group expiration required'>
-                                                <label class='control-label'>Expiration</label>
-                                                <input class='form-control card-expiry-month required' name="exp_month"
-                                                       placeholder='MM' size='2' maxlength="2" type='text'
-                                                       data-stripe="exp_month">
+                                            <div class='form-row'>
+                                                <div class='col-xs-4 form-group custom-btn'>
+                                                    <button type="button"
+                                                            class="btn btn-default submit-payment btn-custom-class"
+                                                            value="">Payer »
+                                                    </button>
+                                                </div>
+                                                <div class='col-xs-4 form-group custom-btn'>
+                                                    <button type="button" class="btn btn-default btn-custom-class"
+                                                            data-dismiss="modal">
+                                                        Fermer
+                                                    </button>
+                                                </div>
                                             </div>
-                                            <div class='col-xs-4 form-group expiration required'>
-                                                <label class='control-label'> </label>
-                                                <input class='form-control card-expiry-year required' name="exp_year"
-                                                       placeholder='YYYY' size='4' type='text' data-stripe="exp_year">
-                                            </div>
-                                        </div>
-                                        <div class='form-row'>
-                                            <div class='col-xs-4 form-group custom-btn'>
-                                                <button type="button"
-                                                        class="btn btn-default submit-payment btn-custom-class"
-                                                        value="">Payer »
-                                                </button>
-                                            </div>
-                                            <div class='col-xs-4 form-group custom-btn'>
-                                                <button type="button" class="btn btn-default btn-custom-class"
-                                                        data-dismiss="modal">
-                                                    Fermer
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </form>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    <?php elseif ($service->available == 2): ?>
+                        <span class="btn btn-danger btn-large">Occupé</span>
+                    <?php else: ?>
+                        <span class="btn btn-large disabled">Indisponible</span>
+                    <?php endif; ?>
                 </div>
                 <div class="visio-contact quicksand">
                     <img class="img-fluid" src="<?php echo URL ?>/img/esatus/picto-cam.png"
@@ -312,87 +326,29 @@
 
 
 <div class="container">
-
-
     <div class="row align-center" id="exp-selec-2">
-
+        <?php
+        foreach($popular_expert as $expert) {
+            //var_dump($expert);
+            $expert=current($expert);
+            ?>
         <div class="col-md-3">
-            <a href="http://www.esatus.fr/index.php/experts/voyance/medium-voyant/david-val--1" alt=""
+            <a href="<?= Router::url('services/view/cat:'.$expert->category.'/subcat:'.$expert->subcategory.'/'.$expert->url); ?>" alt=""
                title="Consult this expert" class="exp-a-profil">
-                <img class="card-img-top img-fluid" src="img/esatus/expert01-home.png" alt="" style="">
+                <img class="card-img-top img-fluid" src="<?= IMAGE; ?>services/<?= $expert->img; ?>" alt="" style="">
                 <h4 class="card-title" style="text-align:center;"><font style="vertical-align: inherit;"><font
-                            style="vertical-align: inherit;">David Val</font></font></h4>
+                            style="vertical-align: inherit;"><?= ($expert->username == '')?></font></font></h4>
 
                 <div class="note">
                     <p class=""><font style="vertical-align: inherit;"><font
                                 style="vertical-align: inherit;">Note </font></font><i class="fa fa-star"
                                                                                        aria-hidden="true"></i><span
-                            style="color:#fff;padding:0 10px;"><font style="vertical-align: inherit;"><font
-                                    style="vertical-align: inherit;">8</font></font></span><font
+                            style="color:#fff;padding:0 10px;"><?= str_replace('.00','',$expert->average)?></span><font
                             style="vertical-align: inherit;"><font style="vertical-align: inherit;"> /10</font></font>
                     </p>
                 </div>
             </a>
         </div>
-
-
-        <div class="col-md-3">
-            <a href="http://www.esatus.fr/index.php/experts/voyance/medium-voyant/adelaid-435" alt=""
-               title="Consult this expert" class="exp-a-profil">
-                <img class="card-img-top img-fluid" src="img/esatus/expert02-home.png" alt="">
-                <h4 class="card-title" style="text-align:center;"><font style="vertical-align: inherit;"><font
-                            style="vertical-align: inherit;">Adelaid</font></font></h4>
-
-                <div class="note">
-                    <p class=""><font style="vertical-align: inherit;"><font
-                                style="vertical-align: inherit;">Note </font></font><i class="fa fa-star"
-                                                                                       aria-hidden="true"></i><span
-                            style="color:#fff;padding:0 10px;"><font style="vertical-align: inherit;"><font
-                                    style="vertical-align: inherit;">9</font></font></span><font
-                            style="vertical-align: inherit;"><font style="vertical-align: inherit;"> /10</font></font>
-                    </p>
-                </div>
-            </a>
-        </div>
-
-
-        <div class="col-md-3">
-            <a href="http://www.esatus.fr/index.php/experts/voyance/medium-voyant/olivia-meduim-426" alt=""
-               title="Consult this expert" class="exp-a-profil">
-                <img class="card-img-top img-fluid" src="img/esatus/expert03-home.png" alt="">
-                <h4 class="card-title" style="text-align:center;"><font style="vertical-align: inherit;"><font
-                            style="vertical-align: inherit;">Olivia</font></font></h4>
-
-                <div class="note">
-                    <p class=""><font style="vertical-align: inherit;"><font
-                                style="vertical-align: inherit;">Note </font></font><i class="fa fa-star"
-                                                                                       aria-hidden="true"></i><span
-                            style="color:#fff;padding:0 10px;"><font style="vertical-align: inherit;"><font
-                                    style="vertical-align: inherit;">9</font></font></span><font
-                            style="vertical-align: inherit;"><font style="vertical-align: inherit;"> /10</font></font>
-                    </p>
-                </div>
-            </a>
-        </div>
-
-
-        <div class="col-md-3">
-            <a href="http://www.esatus.fr/index.php/appelvideo/Pseudonyme/-id expert" alt="" title="Consult this expert"
-               class="exp-a-profil">
-                <img class="card-img-top img-fluid" src="img/esatus/expert03.png" alt="">
-                <h4 class="card-title" style="text-align:center;"><font style="vertical-align: inherit;"><font
-                            style="vertical-align: inherit;">Marc Davon</font></font></h4>
-
-                <div class="note">
-                    <p class=""><font style="vertical-align: inherit;"><font
-                                style="vertical-align: inherit;">Note </font></font><i class="fa fa-star"
-                                                                                       aria-hidden="true"></i><span
-                            style="color:#fff;padding:0 10px;"><font style="vertical-align: inherit;"><font
-                                    style="vertical-align: inherit;">8</font></font></span><font
-                            style="vertical-align: inherit;"><font style="vertical-align: inherit;"> /10</font></font>
-                    </p>
-                </div>
-            </a>
-        </div>
+        <?php } ?>
     </div>
 </div>

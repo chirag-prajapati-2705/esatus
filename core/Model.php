@@ -681,6 +681,18 @@
             $sql->closeCursor();
             return $results;
         }
+
+        public function get_popular_expert(){
+            $q="SELECT ratings.*,round(AVG(ratings.rate)) as average,services.* FROM `ratings` INNER JOIN services ON services.id=ratings.service_id GROUP BY service_id ORDER BY `rate` DESC LIMIT 4";
+            $sql = $this->db->prepare($q);
+            $sql->execute();
+            $results = $this->normalize($sql->fetchAll(PDO::FETCH_OBJ));
+            $results = $this->parseData($results);
+            $sql->closeCursor();
+           // var_dump($results);die;
+            return $results;
+
+        }
         
     }
 
