@@ -8,7 +8,6 @@ $(function () {
             if (!$(this).hasClass('hidden')) {
                 var $this = $(this);
                 var call_id = $(this).attr('data-call-id');
-                console.log(call_id);
                 $.ajax({
                     type: "POST",
                     url: url + "/index.php/services/get_calling_status",
@@ -27,6 +26,7 @@ $(function () {
         });
     }
     $(document).on('click', '.h-modal', function (e) {
+        alert();
         if(user_id !=null && user_id !=''){
             $('#adviser_detail').modal('show');
         }else{

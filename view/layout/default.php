@@ -11,7 +11,7 @@
     <title>Esatus</title>
 
     <!-- Bootstrap core CSS -->
-    <?= $this->HTML->css('bootstrap.css'); ?>
+    <?= $this->HTML->css('bootstrap'); ?>
     <link href="<?php echo URL ?>/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
 
     <!-- Custom fonts for this template -->
@@ -34,6 +34,13 @@
 
     <?= $this->HTML->css('jquery-ui.min'); ?>
     <!-- Temporary navbar container fix -->
+    <?= $this->HTML->css('jquery-ui.min'); ?>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="<?php echo URL ?>/vendor/jquery/jquery.min.js"></script>
+    <script src="<?php echo URL ?>/vendor/tether/tether.min.js"></script>
+    <script src="<?php echo URL ?>/vendor/bootstrap/js/bootstrap.min.js"></script>
+
     <style>
         .navbar-toggler {
             z-index: 1;
@@ -85,7 +92,8 @@
                                     </button>
                                 </span>
 
-                        </div></form>
+                        </div>
+                    </form>
                 </div>
 
                 <li class="nav-item nav_space">
@@ -251,10 +259,6 @@ text-align: left !important;margin-left: 15px !important;margin-top:1rem!importa
     <!-- /.container -->
 </footer>
 
-<!-- Bootstrap core JavaScript -->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/tether/tether.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 
 </body>
 
