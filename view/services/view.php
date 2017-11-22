@@ -35,17 +35,13 @@
 
             <div class="info-chiffre quicksand">
                 <div class="nb-appel">
-                    <i class="fa fa-circle" aria-hidden="true"></i><span><font style="vertical-align: inherit;"><font
-                                style="vertical-align: inherit;"><?= $service->count; ?></font></font></span><font
-                        style="vertical-align: inherit;"><font style="vertical-align: inherit;"> calls
-                        </font></font></div>
+                    <i class="fa fa-circle" aria-hidden="true"></i><span><?= $service->count; ?></span><font
+                        style="vertical-align: inherit;">calls
+                        </font></div>
                 <div class="nb-note"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
                             Note</font></font><i class="fa fa-star"
                                                  aria-hidden="true"></i><span><font
-                            style="vertical-align: inherit;"><font
-                                style="vertical-align: inherit;">
-                                <?php echo (trim($service->average) == 'non noté') ? 0 : $service->average; ?>
-                            </font></font></span><font
+                            style="vertical-align: inherit;"><?php echo (trim($service->average) == 'non noté') ? 0 : str_replace('.00', '', $service->average); ?></font></span><font
                         style="vertical-align: inherit;"><font style="vertical-align: inherit;"> /10
                         </font></font></div>
                 <div class="tarif-ap" style="background-color:#ff983b;">
@@ -98,41 +94,31 @@
                     <div id="menu2" class="tab-pane fade">
                         <h5 class="border-bottom"><img class="img-fluid"
                                                        src="<?php echo URL ?>/img/esatus/picto-ref.png"
-                                                       style="width:40px; margin-right:10px;" alt="">Avis clients : 23 -
-                            Note moyenne : 8/10</h5>
-
-                        <!-- <div class="tab-content">
-                             <div id="com-page-1" class="tab-pane fade in active">
-                                 <h4 class="quicksand">Papillon77<img class="img-fluid" src="img/esatus/note-8.png" style="width:30%; margin: -10px 10px 0;" alt=""><span class="date">Le 14 juillet 2017</span></h4>
-                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                                 <h4 class="quicksand">Nicole1977<img class="img-fluid" src="img/esatus/note-10.png" style="width:30%; margin: -10px 10px 0;" alt=""><span class="date">Le 7 juillet 2017</span></h4>
-                                 <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-                                 <h4 class="quicksand">Camille<img class="img-fluid" src="img/esatus/note-7.png" style="width:30%; margin: -10px 10px 0;" alt=""><span class="date">Le 14 juillet 2017</span></h4>
-                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                                 <h4 class="quicksand">Fatou02<img class="img-fluid" src="img/esatus/note-9.png" style="width:30%; margin: -10px 10px 0;" alt=""><span class="date">Le 14 juillet 2017</span></h4>
-                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                                 <h4 class="quicksand">Marc132<img class="img-fluid" src="img/esatus/note-10.png" style="width:30%; margin: -10px 10px 0;" alt=""><span class="date">Le 14 juillet 2017</span></h4>
-                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                                 <h4 class="quicksand">Sabrina<img class="img-fluid" src="img/esatus/note-8.png" style="width:30%; margin: -10px 10px 0;" alt=""><span class="date">Le 14 juillet 2017</span></h4>
-                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                                 <h4 class="quicksand">Papillon77<img class="img-fluid" src="img/esatus/note-9.png" style="width:30%; margin: -10px 10px 0;" alt=""><span class="date">Le 14 juillet 2017</span></h4>
-                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                                 <h4 class="quicksand">Libelulle32<img class="img-fluid" src="img/esatus/note-7.png" style="width:30%; margin: -10px 10px 0;" alt=""><span class="date">Le 14 juillet 2017</span></h4>
-                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                                 <h4 class="quicksand">Porteur85<img class="img-fluid" src="img/esatus/note-10.png" style="width:30%; margin: -10px 10px 0;" alt=""><span class="date">Le 14 juillet 2017</span></h4>
-                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                                 <h4 class="quicksand">Papillon77<img class="img-fluid" src="img/esatus/note-8.png" style="width:30%; margin: -10px 10px 0;" alt=""><span class="date">Le 14 juillet 2017</span></h4>
-                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                             </div>
+                                                       style="width:40px; margin-right:10px;" alt="">Avis clients
+                            : <?= count($reviews); ?> -
+                            Note moyenne : <?php echo $service->average; ?>/10</h5>
 
 
-                             <div id="com-page-2" class="tab-pane fade">
-                                 <h4 class="quicksand">com-page2<img class="img-fluid" src="img/esatus/note-10.png" style="width:30%; margin: -10px 10px 0;" alt=""><span class="date">Le 14 juillet 2017</span></h4>
-                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                                 <h4 class="quicksand">com-page2<img class="img-fluid" src="img/esatus/note-8.png" style="width:30%; margin: -10px 10px 0;" alt=""><span class="date">Le 14 juillet 2017</span></h4>
-                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                             </div>
-                         </div>-->
+                        <div class="tab-content">
+                            <?php if (count($reviews) == 0): ?>
+                                <h2>Pas encore d'avis</h2>
+                            <?php else: ?>
+                                <div id="com-page-1" class="tab-pane fade in active">
+                                    <?php $i = 0;
+                                    foreach ($reviews as $k => $v): ?>
+                                        <?php $v = current($v); ?>
+                                        <h4 class="quicksand"><?= $v->name; ?>
+                                            <img class="img-fluid" src="img/esatus/note-8.png"
+                                                 style="width:30%; margin: -10px 10px 0;" alt="">
+                                            <span class="date"><?= prettyDate($v->date); ?></span></h4>
+                                        <p><?= $v->comment ?></p>
+                                        <?php $i++; ?>
+                                    <?php endforeach; ?>
+                                </div>
+                            <?php endif; ?>
+
+
+                        </div>
 
                         <!-- <ul class="nav-profil nav-profil-tabs nav nav-tabs tabs2">
                              <li class="active"><a data-toggle="tab" class="tab-a-style-2" href="#com-page-1">1</a></li>
