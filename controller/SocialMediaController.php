@@ -32,8 +32,8 @@ Class SocialMediaController extends Controller
     public function index()
     {
         date_default_timezone_set("America/New_York");
-        FacebookSession::setDefaultApplication('146961899265476', '540f51a7692f3526fbdaada6d51102a5');
-        $helper = new FacebookRedirectLoginHelper('http://localhost/esatus_live_15_11/bin/index.php/facebook-login');
+        FacebookSession::setDefaultApplication(APP_ID, SECRET_KEY);
+        $helper = new FacebookRedirectLoginHelper(REDIRECT_URL);
         try {
             $session = $helper->getSessionFromRedirect();
         } catch (FacebookRequestException $ex) {
