@@ -133,8 +133,43 @@
                                                        src="<?php echo URL ?>/img/esatus/picto-agenda.png"
                                                        style="width:40px; margin-right:10px;" alt="">Mes disponibilités
                         </h5>
-
-                        <div class="row">
+                        <table class="table table-bordered">
+                            <thead>
+                            <tr>
+                                <th>Heures</th>
+                                <th>Lundi</th>
+                                <th>Mardi</th>
+                                <th>Mercredi</th>
+                                <th>Jeudi</th>
+                                <th>Vendredi</th>
+                                <th>Samedi</th>
+                                <th>Dimanche</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <?php for ($i=0; $i<24; $i++): ?>
+                                <tr>
+                                    <td class="blue"><?= str_pad($i,2,'0',STR_PAD_LEFT); ?>:00</td>
+                                    <?php foreach ($service->availabilities as $day){ ?>
+                                        <?php
+                                        $slots = explode(';',$day);
+                                        $cls = false;
+                                        foreach ($slots as $slot) {
+                                            $hours = explode(':',$slot);
+                                            if (isset($hours[1])) {
+                                                if ($i >= $hours[0] && $i < $hours[1]) {
+                                                    $cls = true;
+                                                }
+                                            }
+                                        }
+                                        ?>
+                                        <td<?= ($cls) ? ' class="green"':''; ?>></td>
+                                    <?php } ?>
+                                </tr>
+                            <?php endfor; ?>
+                            </tbody>
+                        </table>
+                       <!-- <div class="row">
                             <div class=".col-md-3 day">Lundi</div>
                             <div class=".col-md-3 cellule border-grey">8:00 - 13:00</div>
                             <div class=".col-md-3 cellule border-grey">14:00 - 17:00</div>
@@ -182,7 +217,7 @@
                             <div class=".col-md-3"></div>
                             <div class=".col-md-3"></div>
                             <div class=".col-md-3"></div>
-                        </div>
+                        </div>-->
                         <div class="align-center">
                             <div class="align-center" style="margin:40px 0;"><a href="" title="" alt=""
                                                                                 class="bkg-bleu cta-rdv"><img
