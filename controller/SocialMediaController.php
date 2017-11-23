@@ -32,8 +32,8 @@ Class SocialMediaController extends Controller
     public function index()
     {
         date_default_timezone_set("America/New_York");
-        FacebookSession::setDefaultApplication(APP_ID, SECRET_KEY);
-        $helper = new FacebookRedirectLoginHelper(REDIRECT_URL);
+        FacebookSession::setDefaultApplication('146961899265476', '540f51a7692f3526fbdaada6d51102a5');
+        $helper = new FacebookRedirectLoginHelper('http://localhost/esatus_live_15_11/bin/index.php/facebook-login');
         try {
             $session = $helper->getSessionFromRedirect();
         } catch (FacebookRequestException $ex) {
@@ -52,18 +52,19 @@ Class SocialMediaController extends Controller
             $email = $graphObject->getProperty('email');
             //$birthday= $graphObject->getProperty('birthday');
             $is_exists = $this->user_exist($email);
-
             if (!empty($is_exists)) {
                 $this->Session->write('profile', current($profile));
-                $this->redirect('users/index');
+                $this->redirect('');
                 die();
             } else {
                 $this->save_user($email, $full_name, $facebook_id, 'facebook');
+                $this->Session->setFlash('Successfully registered in our site.');
+                $this->redirect('');
             }
 
         } else {
             $loginUrl = $helper->getLoginUrl(array(
-                "scope" => 'email,user_birthday',
+                "scope" => 'email',
             ));
             header("Location: " . $loginUrl);
         }
@@ -75,18 +76,22 @@ Class SocialMediaController extends Controller
 
         date_default_timezone_set("America/New_York");
         if (isset($_GET['request'])) {
-            $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET);
-            $request_token = $connection->getRequestToken(OAUTH_CALLBACK);
-            $_SESSION['token'] = $request_token['oauth_token'];
-            $_SESSION['token_secret'] = $request_token['oauth_token_secret'];
-            if ($connection->http_code == '200') {
-                $twitter_url = $connection->getAuthorizeURL($request_token['oauth_token']);
-                header('Location: ' . $twitter_url);
-            } else {
-                $this->Session->setFlash('error, try again later!');
-                $this->redirect('');
-            }
+            try{
+                $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET);
+                $request_token = $connection->getRequestToken(OAUTH_CALLBACK);
+                $_SESSION['token'] = $request_token['oauth_token'];
+                $_SESSION['token_secret'] = $request_token['oauth_token_secret'];
 
+                if ($connection->http_code == '200') {
+                    $twitter_url = $connection->getAuthorizeURL($request_token['oauth_token']);
+                    header('Location: ' . $twitter_url);
+                } else {
+                    $this->Session->setFlash('error, try again later!');
+                    $this->redirect('');
+                }
+            }Catch(Exception $e){
+                echo $e->getMessage();die;
+            }
         }
         //Fresh authentication
 
@@ -104,6 +109,8 @@ Class SocialMediaController extends Controller
                     $this->redirect('');
                 } else {
                     $this->save_user($email, $full_name, $twitter_id, 'twitter');
+                    $this->Session->setFlash('Successfully registered in our site.');
+                    $this->redirect('');
                 }
             } else {
                 $this->Session->setFlash('error, try again later!');
@@ -111,8 +118,8 @@ Class SocialMediaController extends Controller
             }
 
         } else {
-            //Display login button
-            echo '<a href="index.php?request=twitter"><img src="image/login_button.jpg" /></a>';
+            $this->Session->setFlash('error, try again later!');
+            $this->redirect('');
         }
         die();
     }

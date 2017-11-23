@@ -11,7 +11,7 @@
                 <div class="col-lg-4 mb-4">
                     <form  action="<?= Router::url('profiles/signin'); ?>" method="post" name="sentMessage" id="connexForm" novalidate>
                             <div>
-                                <a href=<?= Router::url("facebook-login")?>" title="Connectez-vous avec Facebook" class="btn btn-primary fbform">
+                                <a href="<?= Router::url("facebook-login")?>" title="Connectez-vous avec Facebook" class="btn btn-primary fbform">
                                     <i class="fa fa-facebook" aria-hidden="true"></i>
                                         <p>Connectez-vous avec Facebook</p>
                                 </a>
